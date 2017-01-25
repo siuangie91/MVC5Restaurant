@@ -1,0 +1,34 @@
+﻿@model IEnumerable<MVC5Restaurant.Models.Food>
+
+@{
+    ViewBag.Title = "Menu";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-center">Menu</h2>
+
+@foreach (var food in Model)
+{
+    <div class="row menu-container">
+        <div class="col-md-3 col-sm-4 col-xs-3 col-xxs-6 col-xxs-offset-3 food-image-container">
+            @Html.Partial("_GalleryLinkPartial", food)
+        </div>
+        <div class="col-md-9 col-sm-8 col-xs-9 col-xxs-12 food-prop-container">
+            <div class="row">
+                <div class="col-xs-10 col-xxs-12"><h4 class="food-name">@food.Name</h4></div>
+                <div class="col-xs-2 col-xxs-12"><h5 class="food-price">@string.Format("{0:C}", food.Price)</h5></div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 food-description">
+                    @food.Description
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+@section scripts
+{
+@Scripts.Render("~/Scripts/myscripts/open-magnificpopup.js")
+}

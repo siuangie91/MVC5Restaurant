@@ -1,0 +1,250 @@
+﻿html {
+	position: relative;
+	width: 100%;
+	min-height: 100%;
+}
+
+body {
+	padding: 0;
+	position: relative;
+	width: 100%;
+	min-height: 100vh;
+	background: url(Images/purty_wood.png);
+	color: rgba(65,42,13,1);
+	font-family: 'Happy Monkey', cursive !important;
+	font-size: 16px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+	white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+	max-width: 280px;
+}
+.container {
+	padding-left: 0;
+	padding-right: 0;
+}
+.row, p {
+	margin: 0;
+}
+.main-content, .footer-container {
+	margin: 0 auto;
+}
+.top-container {
+	min-height: 100vh;
+	padding-bottom: 150px;
+}
+.footer-container {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	box-shadow: -1px -1px 10px #333;
+}
+@media (max-width: 620px) {
+	.col-xxs-6 {
+		width: 50%;
+	}
+	.col-xxs-offset-3 {
+		margin-left: 25%;
+	}
+	.col-xxs-12 {
+		width: 100%;
+	}
+}
+@media (max-width: 767px) {
+	.main-content {
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+	.top-container {
+		padding-bottom: 250px;
+	}
+}
+@media (min-width: 768px) {
+	.main-content {
+		max-width: 750px;
+	}
+
+	.modal-dialog {
+		left: auto;
+	}
+}
+@media (min-width: 992px) {
+	.main-content {
+		max-width: 970px;
+	}
+
+	
+}
+@media (min-width: 1200px) {
+	.main-content {
+		max-width: 1170px;
+	}
+}
+.container > .navbar-header,
+.container-fluid > .navbar-header,
+.container > .navbar-collapse,
+.container-fluid > .navbar-collapse {
+	margin: 0 auto;
+}
+.nav>li {
+	box-sizing: border-box;
+	height: 66px;
+}
+.nav>li>a, 
+.navbar-brand {
+	color: rgba(65,42,13,1);
+	font-weight: bold;
+}
+.navbar-brand:hover, 
+.navbar-brand:active,
+.navbar-brand:focus {
+	color: rgb(96, 63, 20);
+}
+.nav > li > a.active,
+.nav > li > a:hover, .nav > li > a:focus, .nav > li > a:active {
+	background: none;
+	border-bottom: 3px solid rgba(65,42,13,1);
+}
+.nav > li > a.active {
+	text-transform: uppercase;
+}
+.nav > li > a.active:before,
+.nav > li > a.active:after {
+	content: " ~ ";
+}
+.navbar {
+	box-shadow: none;
+}
+.navbar-nav {
+	margin: 0;
+}
+.navbar-toggle .icon-bar {
+	background-color: rgba(65,42,13,1);
+}
+.navbar.navbar-static-top {
+	box-shadow: 1px 1px 10px #333;
+}
+.navbar.navbar-static-top, .footer-container .navbar.navbar-inverse {
+	background: rgba(255,255,255,0.5);
+}
+.footer-container .navbar {
+	margin-bottom: 0;
+}
+.footer-container .navbar.navbar-inverse {
+	border: none;
+	border-radius: 0;
+}
+.footer-container a,
+.navbar.navbar-inverse .navbar-nav > li > a {
+	color: #000000;
+}
+.footer-container > .navbar.navbar-inverse > .container > .navbar > .row:last-of-type {
+	padding-bottom: 10px;
+}
+
+.food-image {
+	background: rgba(255,255,255,0.5);
+	border-radius: 10px;
+	border: 4px solid rgba(65,42,13,0.5);
+	-webkit-transition: all 800ms ease-in-out;
+	-moz-transition: all 800ms ease-in-out;
+	transition: all 800ms ease-in-out;
+}
+.food-image:hover,
+.food-image:active,
+.food-image:focus {
+	border-color: transparent;
+	box-shadow: 1px 1px 10px #333;
+}
+
+.menu-container {
+	margin-bottom: 30px !important;
+	padding: 10px 0;
+	background: rgba(255,255,255,0.5);
+	border-radius: 15px;
+}
+
+.menu-container .food-image {
+	background: rgba(70, 193, 28, 0.20);
+	border: none;
+}
+.menu-container:nth-of-type(3n+1) .food-image {
+	background: rgba(57, 168, 251, 0.2);
+}
+.menu-container:nth-of-type(3n+2) .food-image {
+	background: rgba(255, 0, 0, 0.2);
+}
+
+.menu-container h4.food-name,
+.menu-container h5.food-price {
+	font-weight: bold !important;
+	font-family: 'Gochi Hand', cursive;
+}
+.menu-container h4.food-name {
+	font-size: 28px;
+}
+@media (max-width: 620px) {
+	.menu-container h4.food-name {
+		font-size: 22px;
+	}
+}
+.menu-container h5.food-price {
+	text-align: right !important;
+	font-size: 24px;
+}
+
+@media (max-width: 620px) {
+	.menu-container h5.food-price {
+		text-align: left !important;
+		margin-top: 0 !important;
+		margin-bottom: 0 !important;
+		font-size: 20px;
+	}
+}
+.menu-container .food-description {
+	font-style: italic !important;
+	font-size: 16px !important;
+	color: #000;
+}
+@media (max-width: 620px) {
+	.menu-container .food-description {
+		font-size: 14px !important;
+	}
+}
+.gallery-container>.gallery-link>.food-image {
+	margin-top: 20px;
+}
+
+.mfp-figure:after {
+	background: rgba(0,0,0,0.2);
+}
+
+iframe#map {
+	width: 100%;
+	height: 360px;
+}
+
+input.form-control, textarea {
+	background-color: rgba(255,255,255,0.55) !important;
+}
+
+.field-validation-error {
+	color: #ff0000;
+	font-weight: bold;
+}

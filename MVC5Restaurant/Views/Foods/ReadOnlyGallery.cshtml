@@ -1,0 +1,20 @@
+﻿@model IEnumerable<MVC5Restaurant.Models.Food>
+
+@{
+    ViewBag.Title = "Gallery";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-center">Gallery</h2>
+
+@foreach (var food in Model)
+{
+    <div class="col-md-3 col-sm-4 col-xs-6 food-image-container gallery-container">
+        @Html.Partial("_GalleryLinkPartial", food)
+    </div>
+}
+
+@section scripts
+{
+    @Scripts.Render("~/Scripts/myscripts/open-magnificpopup.js")
+}

@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "Success";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Got it! <i class="fa fa-smile-o"></i></h2>
+
+
+<h4>Your message was sent to us successfully. We'll get back to you soon! We promise!</h4>
+<br /><br /><br />
+<h5 class="text-center">Redirecting to home page in:</h5>
+<h2 id="count" class="text-center">5</h2>
+
+@section scripts {
+
+    <script>
+        var $Countdown = $Countdown || {};
+
+        $Countdown = function () {
+            var props = {
+                countFrom: 5,
+                speed: 1000, //ms
+                countText: $('#count')
+            };
+
+            var doCount = function () {
+                setInterval(function () {
+                    if (props.countFrom < 0) {
+                        clearInterval(doCount);
+                        window.location.href = '@Url.Action("Index", "Foods")';
+                    } else {
+                        setCountText();
+                        props.countFrom--;
+                    }
+                }, props.speed);
+            };
+
+            var setCountText = function () {
+                props.countText.html(props.countFrom);
+            };
+
+            this.init = function () {
+                doCount();
+            };
+        };
+
+        var countdown = new $Countdown();
+        countdown.init();
+    </script>
+    
+}

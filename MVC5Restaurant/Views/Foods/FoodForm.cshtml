@@ -1,0 +1,67 @@
+﻿@model MVC5Restaurant.Models.Food
+@{
+    ViewBag.Title = "Menu Item";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Menu Item</h2>
+
+@if (Model != null)
+{
+    <div class="col-md-4">
+        <img src="~/Content/Images/@Model.File" alt="@Model.Name" class="img-responsive" />
+    </div>
+}
+
+<div class="col-md-8">
+    @using (Html.BeginForm("Save", "Foods", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.ValidationSummary(true, "Please fix the following errors:")
+
+
+        <div class="form-group">
+            @Html.LabelFor(f => Model.Name)
+            @Html.TextBoxFor(f => Model.Name, new { @class = "form-control" })
+            @Html.ValidationMessageFor(f => Model.Name)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(f => Model.Price)
+            @Html.TextBoxFor(f => Model.Price, new { @type = "number", @class = "form-control" })
+            @Html.ValidationMessageFor(f => Model.Price)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(f => Model.Description)
+            @Html.TextAreaFor(f => Model.Description, new { @class = "form-control", @rows = 5 })
+            @Html.ValidationMessageFor(f => Model.Description)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(f => Model.File)
+            @if (Model == null) //in Create mode, make uploading a photo required
+            {
+                @Html.TextBoxFor(f => Model.File, new { @class = "form-control", type = "file", required = "required"})
+
+            }
+            else // in Edit mode, uploading a photo is not required
+            {
+                @Html.TextBoxFor(f => Model.File, new { @class = "form-control", type = "file"})
+            }
+            @Html.ValidationMessageFor(f => Model.File)
+        </div>
+
+        @Html.HiddenFor(f => Model.Id)
+        @Html.AntiForgeryToken()
+        <button class="btn btn-primary" type="submit">Save Menu Item</button>
+    }
+
+</div>
+
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+

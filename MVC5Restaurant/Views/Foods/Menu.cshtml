@@ -1,0 +1,66 @@
+﻿@model IEnumerable<MVC5Restaurant.Models.Food>
+
+@{
+    ViewBag.Title = "Menu";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-center">Menu</h2>
+
+<div class="row">
+    @*need the null so that no route params are sent!*@
+    @Html.ActionLink("New Menu Item", "New", "Foods", null, new { @class = "btn btn-primary"})
+</div>
+
+<br /><br />
+
+@foreach (var food in Model)
+{
+    <div class="row menu-container">
+        <div class="col-md-3 col-sm-4 col-xs-3 col-xxs-6 col-xxs-offset-3 food-image-container">
+            @Html.Partial("_GalleryLinkPartial", food)
+        </div>
+        <div class="col-md-9 col-sm-8 col-xs-9 col-xxs-12 food-prop-container">
+            <div class="row">
+                <div class="col-xs-10 col-xxs-12"><h4 class="food-name">@food.Name</h4></div>
+                <div class="col-xs-2 col-xxs-12"><h5 class="food-price">@string.Format("{0:C}", food.Price)</h5></div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 food-description">
+                    @food.Description
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    @Html.ActionLink("Edit", "Edit", "Foods", new { id = food.Id }, new { @class = "btn btn-primary pull-left" })
+                    <button class="btn btn-danger food-delete pull-right" data-food-id="@food.Id">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/Scripts/bootbox.js")
+
+    @Scripts.Render("~/Scripts/myscripts/open-magnificpopup.js")
+
+    <script>
+        $('.menu-container').on('click', '.food-delete', function () {
+            var self = $(this);
+
+            bootbox.confirm('Are you sure you want to delete this menu item?', function (result) {
+                if (result) {
+                    $.ajax({
+                        url: '/api/foods/' + self.attr('data-food-id'),
+                        method: 'DELETE',
+                        success: function () {
+                            window.location.href = '@Url.Action("Index", "Foods")';
+                        }
+                    });
+                }
+            });
+            //console.log($(this).data('food-id'));
+        });
+    </script>
+}

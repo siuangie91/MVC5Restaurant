@@ -1,0 +1,162 @@
+﻿body {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-family: 'Happy Monkey', cursive !important;
+	font-size: 16px;
+}
+.fullscreen-bg {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	overflow: hidden;
+	z-index: -100;
+}
+
+.fullscreen-bg__video {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+@media (min-aspect-ratio: 16/9) {
+  .fullscreen-bg__video {
+	height: 300%;
+	top: -100%;
+  }
+}
+
+@media (max-aspect-ratio: 16/9) {
+  .fullscreen-bg__video {
+	width: 300%;
+	left: -100%;
+  }
+}
+@media (max-width: 767px) {
+  .fullscreen-bg {
+	background: url('Images/baking_vid_still.PNG') center center no-repeat;
+	background-size: cover;
+  }
+
+  .fullscreen-bg__video {
+	display: none;
+  }
+}
+.content-container {
+	width: 100vw;
+	height: 100vh;
+		/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,ffffff+50,000000+100&0.75+0,0+50,0.75+100 */
+background: -moz-linear-gradient(top,  rgba(0,0,0,0.75) 0%, rgba(255,255,255,0) 50%, rgba(0,0,0,0.75) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  rgba(0,0,0,0.75) 0%,rgba(255,255,255,0) 50%,rgba(0,0,0,0.75) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  rgba(0,0,0,0.75) 0%,rgba(255,255,255,0) 50%,rgba(0,0,0,0.75) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bf000000', endColorstr='#bf000000',GradientType=0 ); /* IE6-9 */
+
+
+}
+.content {
+	position: absolute;
+	width: 100%;
+	max-width: 960px;
+	max-height: 100vh;
+	padding: 0 15px;
+	text-align: center;
+	left: 50%;
+	top: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	color: #ffffff;
+}
+
+.content h1 {
+	font-size: 28px;
+}
+.content h2 {
+	font-size: 22px;
+}
+.legal-container {
+	width: 85%;
+	margin-left: auto;
+	margin-right: auto;
+}
+@media (min-width: 620px) {
+	.content h1 {
+		font-size: 48px;
+	}
+	.content h2 {
+		font-size: 26px;
+	}
+}
+
+@media (min-width: 768px) {
+	.content h1 {
+		font-size: 56px;
+	}
+	.content h2 {
+		font-size: 34px;
+	}
+}
+
+@media (min-width: 992px) {
+	.content h1 {
+		font-size: 68px;
+	}
+	.content h2 {
+		font-size: 42px;
+	}
+}
+
+@media (min-width: 1200px) {
+	.content h1 {
+		font-size: 80px;
+	}
+
+	.content h2 {
+		font-size: 50px;
+	}
+}
+.content a {
+	text-decoration: underline;
+	color: #ffffff;
+}
+
+.enter-container {
+	background: rgba(255,255,255,0.15);
+	box-shadow: 0 0 15px 5px #222;
+	line-height: 2;
+	-webkit-transition: all 800ms ease-in-out;
+	-moz-transition: all 800ms ease-in-out;
+	-ms-transition: all 800ms ease-in-out;
+	transition: all 800ms ease-in-out;
+}
+.enter-container:hover,
+.enter-container:focus,
+.enter-container:active {
+	/*box-shadow: none;*/
+	background: rgba(0,0,0,0.5);
+}
+.enter-container a {
+	text-decoration: none;
+}
+.enter-container a h2:before,
+.enter-container a h2:after {
+	content: " ~ ";
+	opacity: 0;
+	-webkit-transition: all 800ms ease-in-out;
+	-moz-transition: all 800ms ease-in-out;
+	-ms-transition: all 800ms ease-in-out;
+	transition: all 800ms ease-in-out;
+}
+.enter-container:hover a h2:before,
+.enter-container:hover a h2:after,
+.enter-container:active a h2:before,
+.enter-container:active a h2:after,
+.enter-container:focus a h2:before,
+.enter-container:focus a h2:after {
+	opacity: 1;
+}
